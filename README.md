@@ -25,9 +25,8 @@ Usage
 4. Follow the prompts to enter your investment details.
 5. The calculator will display the final amount, total contributions, and interest earned.
 
-Input Parameters:
+## Input Parameters:
 
-Input Parameters:
 |Parameter	|Description|
 |----------------|----------------|
 |Principal amount	|Your initial investment (€)|
@@ -37,6 +36,6 @@ Input Parameters:
 |Monthly addition	|Regular contributions added each month (€)|
 
 
-Contact
+## Contact
 If you have any questions or suggestions, please open an issue on GitHub.
 
