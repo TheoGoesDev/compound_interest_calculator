@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation Results</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="text-center">Calculation Results</h1>
+        <div class="mt-4">
+            <p><strong>Principal Amount:</strong> €{{ principal }}</p>
+            <p><strong>Annual Interest Rate:</strong> {{ rate }}%</p>
+            <p><strong>Time Period:</strong> {{ time }} years</p>
+            <p><strong>Compounding Frequency:</strong> {{ compounds_per_year }} times per year</p>
+            <p><strong>Monthly Addition:</strong> €{{ monthly_addition }}</p>
+            <p><strong>Total Contributions:</strong> €{{ total_contributions }}</p>
+            <p><strong>Final Amount (Before Tax):</strong> €{{ final_amount }}</p>
+            <p><strong>Interest Earned:</strong> €{{ earned_interest }}</p>
+        </div>
+        <h3 class="mt-4">Tax Calculation (Netherlands)</h3>
+        <div class="card p-3 bg-light mb-4">
+            <p><strong>Total Wealth:</strong> €{{ final_amount }}</p>
+            {% if tax == "0.00" %}
+                <p class="text-success"><strong>Tax Status:</strong> Below €57,000 threshold - No wealth tax applies</p>
+            {% else %}
+                <p><strong>Taxable Amount:</strong> €{{ "{:,.2f}".format(final_amount|float - 57000) }}</p>
+                <p><strong>Fictional Return (4%):</strong> €{{ fictional_return }}</p>
+                <p><strong>Tax Rate on Fictional Return:</strong> 35%</p>
+                <p><strong>Annual Tax Due:</strong> €{{ tax }}</p>
+            {% endif %}
+            <p><strong>Final Amount (After Tax):</strong> €{{ after_tax_amount }}</p>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto mb-5">
+            <a href="/" class="btn btn-primary btn-lg">Back to Calculator</a>
+        </div>
+    </div>
+</body>
+</html>
